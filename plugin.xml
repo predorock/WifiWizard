@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	id="com.pylonproducts.wifiwizard"
+	id="cordova-plugin-wifiwizard"
 	version="0.2.11">
 
     <name>WifiWizard</name>
@@ -10,13 +10,12 @@
 	<author>Matt Parsons</author>
 	<keywords>phonegap,network,wifi</keywords>
     <license>Apache 2.0</license>
-	<repo>https://github.com/parsonsmatt/WifiWizard/</repo>
-
-    <js-module src="www/WifiWizard.js" name="WifiWizard">
-    	<clobbers target="window.WifiWizard"/>
-    </js-module>
+	<repo>https://github.com/predorock/WifiWizard</repo>
 
     <platform name="android">
+		<js-module src="www/WifiWizard.js" name="WifiWizard">
+			<clobbers target="cordova.plugins.wifiwizard"/>
+		</js-module>
 
 		<config-file target="AndroidManifest.xml" parent="/manifest">
 			<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -35,6 +34,10 @@
     </platform>
 
 	<platform name="ios">
+
+		<js-module src="www/WifiWizard.js" name="WifiWizard">
+    		<clobbers target="cordova.plugins.wifiwizard"/>
+    	</js-module>
 		<config-file target="config.xml" parent="/*">
 			<feature name="WifiWizard">
 				<param name="ios-package" value="NXWWifiWizard"/>
